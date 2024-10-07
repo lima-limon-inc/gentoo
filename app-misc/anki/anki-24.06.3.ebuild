@@ -728,7 +728,7 @@ LICENSE+=" Unicode-3.0 openssl"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="doc +gui qt6 test"
+IUSE="doc +gui qt6 test orjson"
 REQUIRED_USE="gui? ( ${PYTHON_REQUIRED_USE} )"
 RESTRICT="!gui? ( test ) !test? ( test )"
 
@@ -778,6 +778,7 @@ RDEPEND="
 	${DEPEND}
 	app-misc/ca-certificates
 	gui? ( ${GUI_RDEPEND} )
+	orjson? ( dev-python/orjson )
 "
 
 BDEPEND="
@@ -971,7 +972,6 @@ pkg_postinst() {
 		optfeature "LaTeX in cards" "app-text/texlive[extra] app-text/dvipng"
 		optfeature "sound support" media-video/mpv media-video/mplayer
 		optfeature "recording support" "media-sound/lame[frontend] dev-python/PyQt$(usex qt6 6 5)[multimedia]"
-		optfeature "faster database operations" dev-python/orjson
 		use qt6 && optfeature "compatibility with Qt5-dependent add-ons" dev-python/PyQt6[dbus,printsupport]
 		use qt6 && optfeature "Vulkan driver" "media-libs/vulkan-loader dev-qt/qtbase[vulkan]
 			dev-qt/qtdeclarative:6[vulkan] dev-qt/qtwebengine:6[vulkan]"

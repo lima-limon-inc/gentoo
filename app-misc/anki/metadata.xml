@@ -31,5 +31,8 @@
 		<flag name="gui">
 			Enable support for a graphical user interface. Disable for standalone sync server.
 		</flag>
+		<flag name="orjson">
+			Enable support for faster database operations
+		</flag>
 	</use>
 </pkgmetadata>
